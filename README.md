@@ -2,6 +2,7 @@
 
 # installation
 paste these
+
 ```git clone https://github.com/realdanvanth/chess-cli.git```
 
 ```cd chess-cli/src```
