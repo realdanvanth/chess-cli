@@ -32,7 +32,7 @@ class item {
           case 6:
                t = "knight"; break;
           default:
-               t = "nigga"; break;
+               t = "tf"; break;
           }
           return "id: " + id + " type :" + t + " posx: " + posx +
               " posy : " + posy;
