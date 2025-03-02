@@ -3,13 +3,17 @@
 # installation
 paste these
 
-```git clone https://github.com/realdanvanth/chess-cli.git```
+```
+git clone https://github.com/realdanvanth/chess-cli.git```
 
-```cd chess-cli/src```
+```sh
+cd chess-cli/src```
 
-```javac chess.java```
+```sh
+javac chess.java```
 
-```java chess```
+```sh
+java chess```
 
 # usage
 
