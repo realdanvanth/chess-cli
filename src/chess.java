@@ -1,24 +1,20 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 class chess {
      int board[][];
 
      chess() {
-          this.board = new int[][] {{-4, -6, -5, -3, -2, -5, -6, -4},
-                                    {-1, -1, -1, -1, -1, -1, -1, -1},
-                                    {0, 0, 0, 0, 0, 0, 0, 0},
-                                    {0, 0, 0, 0, 0, 0, 0, 0},
-                                    {0, 0, 0, 0, 0, 0, 0, 0},
-                                    {0, 0, 0, 0, 0, 0, 0, 0},
-                                    {1, 1, 1, 1, 1, 1, 1, 1},
-                                    {4, 6, 5, 3, 2, 5, 6, 4}};
+          this.board = new int[][]{{-4, -6, -5, -3, -2, -5, -6, -4}, {-1, -1, -1, -1, -1, -1, -1, -1},
+           {0, 0, 0, 0, 0, 0, 0, 0},         {0, 0, 0, 0, 0, 0, 0, 0},
+           {0, 0, 0, 0, 0, 0, 0, 0},         {0, 0, 0, 0, 0, 0, 0, 0},
+           {1, 1, 1, 1, 1, 1, 1, 1},         {4, 6, 5, 3, 2, 5, 6, 4}};
      }
      chess(int board[][]) { this.board = board; }
 
      void display() {
           int count = 0;
           for (int i = 0; i < 8; i++) {
-            System.out.print(8-i+" ");
+               System.out.print(8 - i + " ");
                for (int j = 0; j < 8; j++) {
                     int piece = board[i][j];
                     if (piece == 0) {
@@ -394,7 +390,8 @@ class chess {
           }
           return flag;
      }
-     public static void main(String args[])throws IOException {
+     public static void main(String args[])
+         throws IOException, InterruptedException {
           chess game = new chess();
           // game.board[4][4] = 3;
           //   game.board[34 - 1] = 2;
@@ -419,51 +416,57 @@ class chess {
           //   System.out.println(game.move(7,3,3,3));
           //   game.display();
           // int i = 0;
-          InputStreamReader ir=new InputStreamReader(System.in);
-          BufferedReader br=new BufferedReader(ir);
+          InputStreamReader ir = new InputStreamReader(System.in);
+          BufferedReader br = new BufferedReader(ir);
           Scanner sc = new Scanner(System.in);
           int player = 1;
           game.display();
-          System.out.println("ENTER DEPTH, 3 or 5 is reccomended, 5 takes a "
+          System.out.println("ENTER DEPTH, 3 or 5 is recomended, 5 takes a "
                              + "minute to respond");
           int d = sc.nextInt();
           System.out.println("Enter color +1 white -1 black");
           int color = sc.nextInt();
-                    // int i = 0;
+          // int i = 0;
           while (true) {
                System.out.println("ENTER UR MOVE");
                String input = br.readLine().trim();
-               String[] notation= input.split(" ");
+               String[] notation = input.split(" ");
                int j = notation[0].charAt(0) - 'a';
-               int i =
-                   game.board.length - Integer.parseInt(notation[0].substring(1));
+               int i = game.board.length -
+                       Integer.parseInt(notation[0].substring(1));
                int y = notation[1].charAt(0) - 'a';
-               int x = game.board.length  -
+               int x = game.board.length -
                        Integer.parseInt(notation[1].substring(1));
                play test = new play(1, game.board, color);
-               System.out.println("i:"+i+" j:"+j+"x:"+x+"y:"+y);
+               System.out.println("i:" + i + " j:" + j + "x:" + x + "y:" + y);
                while (test.move(i, j, x, y) < 0) {
                     System.out.println("ERROR " + test.move(i, j, x, y));
                     System.out.println("ENTER valid MOVE");
                     input = br.readLine().trim();
                     notation = input.split(" ");
                     j = notation[0].charAt(0) - 'a';
-                    i = game.board.length - 2 -
+                    i = game.board.length -
                         Integer.parseInt(notation[0].substring(1));
                     y = notation[1].charAt(0) - 'a';
-                    x = game.board.length - 2 -
+                    x = game.board.length -
                         Integer.parseInt(notation[1].substring(1));
 
                     game.display();
                }
-               game.makeMove(i, j, x, y);
+                game.makeMove(i, j, x, y);
                game.display();
+               // Thread.sleep(2000);
                play inst = new play(d, game.board, -1 * color);
                System.out.println("thinking ....");
-               inst.makeMove("");
-               // System.out.println(a);
-               // player = -1 * player;
-               i++;
+               long start = System.currentTimeMillis();
+               inst.makeMove("", -9999, 9999);
+               long end = System.currentTimeMillis();
+               System.out.println("time: " + (end - start));
+               // Thread.sleep(5000);
+               //  System.out.println(a);
+               //  player = -1 * player;
+               // color=-1*color;
+               // i++;
                game.display();
                // i++;
           }
