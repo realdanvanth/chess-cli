@@ -163,7 +163,7 @@ class play {
                if (type == 1 || type == 2 || type == 6) {
                     for (int j = 0; j < moves[type].length; j++) {
                          /*if (player == 1 && type == 1) {
-                           System.out.println("igga i am  fuckin heree....");
+                           System.out.println(" i am heree....");
                               moves[type][j][0] = -1 * moves[type][j][0];
                               moves[type][j][1] = -1 * moves[type][j][1];
                               System.out.println(moves[type][j][0]+"hel
@@ -218,7 +218,7 @@ class play {
                                    if (depth == 2 || depth == 1) {
 
                                         /*System.out.println(
-                                            space +"nigga player: "+player +" "+
+                                            space +"player: "+player +" "+
                                         items[i].display() + " x: " + x + " y: "
                                         + y); System.out.println(space + "
                                         prediction" + p);*/
