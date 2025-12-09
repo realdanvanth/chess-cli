@@ -42,8 +42,8 @@ java chess
 ```
 Enter your move: e2 e4
 output:
-<img width="287" height="435" alt="image" src="https://github.com/user-attachments/assets/c82bd9ae-7c8c-443d-8ab2-df8c9b3d32f2" />
 ```
+<img width="287" height="435" alt="image" src="https://github.com/user-attachments/assets/c82bd9ae-7c8c-443d-8ab2-df8c9b3d32f2" />
 
 * To quit the game at any time, type `exit`.
 
